@@ -1,3 +1,26 @@
-<p>
-  entities works!
-</p>
+<mat-accordion *ngIf="entityDetails.length; else emptyEntityDetails">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <button (click)="showDialog()" mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button> Connect entity
+    </mat-expansion-panel-header>
+    <div *ngFor="let entityDetail of entityDetails">
+      <p>
+        {{entityDetail.title}}
+      </p>
+      <p>
+        {{entityDetail.description}}
+      </p>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<ng-template #emptyEntityDetails>
+  <mat-card >
+    <button (click)="showDialog()" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button> Connect entity
+  </mat-card>
+</ng-template>
