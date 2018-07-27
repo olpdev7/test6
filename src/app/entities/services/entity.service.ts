@@ -15,7 +15,10 @@ export class EntityService {
   }
 
   getEntitiesByIds(ids: number[]): Observable<EntityDetails[]> {
-    return of(entityDetails);
+    return of(entityDetails
+      .filter(entityDetails => {
+        return ids.includes(entityDetails.entityTypeId);
+      }));
   }
 
 }

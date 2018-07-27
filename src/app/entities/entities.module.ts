@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ConnectEntityDialogComponent } from './connect-entity-dialog/connect-entity-dialog.component';
 import { EntitiesComponent } from './entities/entities.component';
@@ -12,6 +13,8 @@ import { EntityTypeListComponent } from './entity-list/entity-type-list.componen
   imports: [
     CommonModule,
     EntitiesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialHubModule,
   ],
   declarations: [EntitiesComponent, ConnectEntityDialogComponent, EntityTypeListComponent],
