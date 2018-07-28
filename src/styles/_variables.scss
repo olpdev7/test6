@@ -1,0 +1,39 @@
+@import '~@angular/material/theming';
+
+/*
+FOR INNER USAGE!
+To create angular material custom theme
+ */
+
+$_app-mat-primary: mat-palette($mat-blue);
+$_app-mat-accent: mat-palette($mat-indigo, 700, A100, A400);
+$_app-mat-warn: mat-palette($mat-red);
+
+$app-mat-theme: mat-light-theme($_app-mat-primary, $_app-mat-accent, $_app-mat-warn);
+
+
+$page-background: #ebe8ef;
+$add-space: 5px;
+
+
+$text-font-family: 'Roboto', sans-serif;
+
+$text-color: rgba(0,0,0,0.87);
+$text-color2: rgba(0,0,0,0.54);
+$text-color3: #939393;
+$text-color4: #fff;
+$text-color5: rgba(0,0,0,0.38);
+
+$text-lineheight: 40px;
+$text-lineheight2: 24px;
+$text-lineheight3: 20px;
+
+$text-font-size1: 16px;
+$text-font-size2: 14px;
+$text-font-size3: 32px;
+
+
+
+$button-width: 40px;
+$button-background: #e5e3e9;
+$button-background2: #4caf50;

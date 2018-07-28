@@ -7,7 +7,6 @@ import { EntitiesComponent } from './entities/entities.component';
 import { EntityService } from './services/entity.service';
 import { EntitiesRoutingModule } from './entities-routing.module';
 import { MaterialHubModule } from '../material-hub/material-hub.module';
-import { EntityTypeListComponent } from './entity-list/entity-type-list.component';
 
 @NgModule({
   imports: [
@@ -17,7 +16,7 @@ import { EntityTypeListComponent } from './entity-list/entity-type-list.componen
     ReactiveFormsModule,
     MaterialHubModule,
   ],
-  declarations: [EntitiesComponent, ConnectEntityDialogComponent, EntityTypeListComponent],
+  declarations: [EntitiesComponent, ConnectEntityDialogComponent],
   entryComponents: [ConnectEntityDialogComponent],
   providers: [EntityService]
 })

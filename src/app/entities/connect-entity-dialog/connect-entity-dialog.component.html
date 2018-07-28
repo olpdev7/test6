@@ -1,20 +1,40 @@
-<h5>2016 KPI:$15M Renewal Revenue (Strategic Goal)</h5>
-<button (click)="close()" mat-icon-button>
-  <mat-icon>close</mat-icon>
-</button>
-<h1>Add entities</h1>
+<div mat-dialog-title>
+  <span class="hint-title">2016 KPI:$15M Renewal Revenue (Strategic Goal)</span>
 
-<mat-card>
-  <div>
-    <mat-form-field>
-      <input matInput [formControl]="searchControl">
-    </mat-form-field>
-  </div>
-  <div *ngFor="let entityType of entityTypes" [ngClass]="{'entity-hidden': entityType.hidden}">
-    <mat-checkbox [(ngModel)]="entityType.checked"></mat-checkbox>
-    <span>{{entityType.title}}</span>
-    <span>{{entityType.type}}</span>
-  </div>
-</mat-card>
+  <button (click)="close()" mat-icon-button class="close-btn">
+    <mat-icon svgIcon="app-icon-close"></mat-icon>
+  </button>
+</div>
 
-<button class="btn-connect" mat-flat-button (click)="connect()">Connect</button>
+  <p class="add-entites-header">Add entities</p>
+
+  <div class="entity-types-container">
+    <mat-card class="entity-types-list">
+
+      <div class="entity-row header">
+        <mat-form-field class="search-form-field">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput [formControl]="searchControl" placeholder="Search entity">
+        </mat-form-field>
+        <button mat-icon-button class="sort-btn">
+          <mat-icon svgIcon="app-icon-shape">mode_edit</mat-icon>
+        </button>
+      </div>
+
+      <div *ngFor="let entityType of entityTypes"
+           [ngClass]="{'entity-hidden': entityType.hidden}"
+           class="entity-row entity-item">
+
+        <mat-checkbox [(ngModel)]="entityType.checked"></mat-checkbox>
+
+        <div class="entity-description">
+          <p class="description-title">{{entityType.title}}</p>
+          <p class="description-type">{{entityType.type}}</p>
+        </div>
+      </div>
+    </mat-card>
+
+    <button class="connect-btn" mat-flat-button (click)="connect()">
+      <span class="button-title">Connect</span>
+    </button>
+  </div>

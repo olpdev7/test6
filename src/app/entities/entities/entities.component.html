@@ -1,15 +1,18 @@
 <mat-accordion *ngIf="entityDetails.length; else emptyEntityDetails">
-  <mat-expansion-panel>
+  <mat-expansion-panel class="entity-card entity-expansion-panel">
+
     <mat-expansion-panel-header>
-      <button (click)="showDialog()" mat-icon-button>
+      <button (click)="showDialog()" mat-icon-button class="add-entity-btn">
         <mat-icon>add</mat-icon>
-      </button> Connect entity
+      </button>
+      <span class="panel-title">Entites connected ({{entityDetails.length}})</span>
     </mat-expansion-panel-header>
-    <div *ngFor="let entityDetail of entityDetails">
-      <p>
+
+    <div *ngFor="let entityDetail of entityDetails" class="entity-item">
+      <p class="entity-title">
         {{entityDetail.title}}
       </p>
-      <p>
+      <p class="entity-description">
         {{entityDetail.description}}
       </p>
     </div>
@@ -18,9 +21,10 @@
 </mat-accordion>
 
 <ng-template #emptyEntityDetails>
-  <mat-card >
-    <button (click)="showDialog()" mat-icon-button>
+  <mat-card class="entity-card entity-empty-card">
+    <button (click)="showDialog()" mat-icon-button class="add-entity-btn">
       <mat-icon>add</mat-icon>
-    </button> Connect entity
+    </button>
+    <span class="panel-title">Connect entity</span>
   </mat-card>
 </ng-template>

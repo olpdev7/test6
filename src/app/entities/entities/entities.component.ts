@@ -17,7 +17,8 @@ export class EntitiesComponent implements OnInit {
   dialogRef: MatDialogRef<ConnectEntityDialogComponent>;
   entityDetails: EntityDetails[] = [];
 
-  constructor(private entityService: EntityService, private dialog: MatDialog) { }
+  constructor(private entityService: EntityService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {}
 
@@ -35,8 +36,8 @@ export class EntitiesComponent implements OnInit {
             }
           })
         ).subscribe(entityDetails => {
-        this.entityDetails = entityDetails;
-      });
+          this.entityDetails = entityDetails;
+        });
     });
   }
 
@@ -45,7 +46,8 @@ export class EntitiesComponent implements OnInit {
       data: {entityTypes},
       height: '100vh',
       width: '100vw',
-      maxWidth: '100vw'
+      maxWidth: '100vw',
+      autoFocus: false
     });
   }
 

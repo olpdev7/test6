@@ -1,0 +1,72 @@
+@import 'variables';
+@import '../snippets';
+
+$entity-width: 400px;
+
+:host {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $page-background;
+}
+
+.entity-card {
+  width: $entity-width;
+  box-sizing: border-box;
+  padding: 20px 24px;
+
+  .panel-title {
+    line-height: $text-lineheight;
+    font-size: $text-font-size1;
+    color: $text-color3;
+  }
+
+  .entity-item {
+    margin-top: 39px;
+    margin-left: $button-width + $add-space;
+
+    .entity-title {
+      @extend %entity-title;
+    }
+
+    .entity-description {
+      @extend %entity-description;
+    }
+
+    @media screen and (max-width: $entity-width) {
+      margin-left: $button-width;
+    }
+  }
+
+  @media screen and (max-width: $entity-width) {
+    width: auto;
+  }
+}
+
+.entity-empty-card {
+  height: $text-lineheight * 2;
+}
+
+.add-entity-btn {
+  background: $button-background;
+  margin-right: $add-space;
+
+  @media screen and (max-width: $entity-width) {
+    margin-right: 0;
+  }
+}
+
+.entity-expansion-panel {
+  mat-expansion-panel-header {
+    padding: 0;
+    height: $text-lineheight !important;
+  }
+
+  ::ng-deep {
+    .mat-expansion-panel-body {
+      padding: 0;
+    }
+  }
+}

@@ -1,3 +1,134 @@
+@import 'variables';
+@import '../snippets';
+
 .entity-hidden {
-  display: none;
+  display: none !important;
+}
+
+.hint-title  {
+  color: $text-color2;
+  font-size: $text-font-size1;
+  line-height: $text-lineheight2;
+}
+
+.close-btn {
+  float: right;
+}
+
+.mat-dialog-title {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.add-entites-header {
+  color: $text-color;
+  font-family: $text-font-family;
+  font-size: $text-font-size3;
+  line-height: $text-lineheight;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.entity-types-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .entity-types-list {
+    $entity-types-list-width: 780px;
+    width: $entity-types-list-width;
+
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+    padding: 0;
+
+    .entity-row {
+      $padding-right: 32px;
+      padding: 15px $padding-right;
+      border-bottom: 1px solid #D8D8D8;
+
+      &.header {
+        position: relative;
+        padding: 0px $padding-right 10px;
+
+        ::ng-deep {
+          .mat-form-field-flex  {
+            align-items: flex-end;
+          }
+        }
+
+        $icon-size: $text-font-size1;
+        .search-form-field {
+          width: calc(100% - #{$icon-size * 2});
+          mat-icon {
+            color: $text-color5;
+          }
+        }
+
+        .sort-btn {
+          position: absolute;
+          bottom: 10px;
+          right: $padding-right / 2;
+
+          mat-icon {
+            height: $icon-size;
+            width: $icon-size;
+          }
+        }
+      }
+    }
+
+    .entity-item {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+
+      .entity-description {
+        display: inline-block;
+        margin-left: 16px;
+
+        .description-title {
+          @extend %entity-title
+        }
+
+        .description-type {
+          @extend %entity-description;
+        }
+      }
+    }
+
+    @media screen and (max-width: $entity-types-list-width) {
+      width: auto;
+    }
+  }
+
+  .connect-btn {
+    margin-top: 93px;
+    height: 60px;
+    width: 234.47px;
+    border-radius: 2px;
+    background-color: $button-background2;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 8px 0 rgba(0,0,0,0.12), 0 8px 8px 0 rgba(0,0,0,0.24);
+
+    .button-title {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      line-height: 16px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+::ng-deep {
+  .mat-input-underline {
+    display: none;
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-form-field-label {
+    color: $text-color5;
+  }
 }

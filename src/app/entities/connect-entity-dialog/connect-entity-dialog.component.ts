@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef, MatInput } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
 import { EntityType } from '../../interfaces/entity-type.interface';
@@ -13,10 +13,14 @@ export class ConnectEntityDialogComponent implements OnInit {
   entityTypes: EntityType[];
   searchControl: FormControl;
 
+  @ViewChild(MatInput)
+  searchMatInput: MatInput;
+
   constructor(private dialogRef: MatDialogRef<ConnectEntityDialogComponent>,
               @Inject(MAT_DIALOG_DATA) private data: any) { }
 
   ngOnInit(): void {
+    this.searchMatInput.focus();
     this.searchControl = new FormControl();
     this.searchControl.valueChanges.subscribe(value => {
       this.filterEntityTypes(value);
@@ -26,13 +30,7 @@ export class ConnectEntityDialogComponent implements OnInit {
   }
 
   connect(): void {
-    let checkedIds:number[] = this.entityTypes.reduce((ids, entityType)=> {
-      if (entityType.checked) {
-        ids.push(entityType.id);
-      }
-      return ids;
-    }, []);
-
+    let checkedIds: number[] = this.getCheckedIds();
     this.close(checkedIds);
   }
 
@@ -45,5 +43,14 @@ export class ConnectEntityDialogComponent implements OnInit {
     this.entityTypes.forEach(entityType => {
       entityType.hidden = entityType.title.search(term) === -1;
     });
+  }
+
+  private getCheckedIds() {
+    return this.entityTypes.reduce((ids, entityType)=> {
+      if (entityType.checked) {
+        ids.push(entityType.id);
+      }
+      return ids;
+    }, []);
   }
 }

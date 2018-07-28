@@ -1,0 +1,17 @@
+@import 'variables';
+
+%entity-title {
+  height: $text-lineheight2;
+  color: $text-color;
+  font-size: $text-font-size1;
+  line-height: $text-lineheight2;
+  margin: 0;
+}
+
+%entity-description {
+  height: $text-lineheight3;
+  color: $text-color2;
+  font-size: $text-font-size2;
+  line-height: $text-lineheight3;
+  margin: 0;
+}
